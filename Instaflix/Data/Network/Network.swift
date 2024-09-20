@@ -37,7 +37,9 @@ public class Network: NetworkProtocol {
             guard let model = try? decoder.decode(T.self, from: data) else { throw NetworkErrorType.invalidData }
             return model
         } catch let error as NSError {
-            if error.code < ResponseStatusType.success.rawValue {
+            if error.code == ResponseStatusType.invalidToken.rawValue {
+                throw NetworkErrorType.invalidToken
+            } else if error.code < .zero {
                 throw NetworkErrorType.internetConnection
             } else {
                 throw NetworkErrorType.generalError
@@ -50,4 +52,5 @@ public class Network: NetworkProtocol {
 
 enum ResponseStatusType: Int {
     case success = 200
+    case invalidToken = 2
 }

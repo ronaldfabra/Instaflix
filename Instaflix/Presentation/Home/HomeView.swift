@@ -34,9 +34,6 @@ struct HomeView: View {
         .fullScreenCover(isPresented: $viewModel.showSearchView, content: {
             SearchViewBuilder.make()
         })
-        .onAppear {
-            viewModel.selectedFilter = viewModel.filters.first
-        }
         .onRotate { newOrientation in
             orientation = newOrientation
         }

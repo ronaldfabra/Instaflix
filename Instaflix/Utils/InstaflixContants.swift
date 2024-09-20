@@ -60,7 +60,8 @@ struct InstaflixContants {
             static let serverError = "Internal server error, try again later."
             static let invalidData = "Error in the data obtained, try again later."
             static let internetConnection = "The internet connection appears to be offline."
-            static let general = "System error, try again later"
+            static let general = "System error, try again later."
+            static let invalidToken = "Please check your authorization token and try again later."
         }
     }
 }

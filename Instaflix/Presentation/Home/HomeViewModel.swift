@@ -10,8 +10,16 @@ import Foundation
 
 @Observable
 class HomeViewModel: ObservableObject {
-    var filters: [FilterDomainModel] = [.init(title: MediaType.serie.filterTitle, isDropdown: false),
-                                  .init(title: MediaType.movie.filterTitle, isDropdown: false)]
-    var selectedFilter: FilterDomainModel? = nil
+    var filters: [FilterDomainModel] = []
+    var selectedFilter: FilterDomainModel?
     var showSearchView: Bool = false
+
+    init(filters: [FilterDomainModel] = [
+        .init(title: MediaType.serie.filterTitle, isDropdown: false),
+        .init(title: MediaType.movie.filterTitle, isDropdown: false)
+    ]) {
+        self.filters = filters
+        self.showSearchView = showSearchView
+        self.selectedFilter = filters.first
+    }
 }

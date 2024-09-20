@@ -11,6 +11,7 @@ public enum NetworkErrorType: LocalizedError, Equatable {
     case invalidURL
     case serverError
     case invalidData
+    case invalidToken
     case internetConnection
     case generalError
     case unkown(Error)
@@ -33,6 +34,8 @@ public enum NetworkErrorType: LocalizedError, Equatable {
                 return InstaflixContants.Strings.NetworkError.internetConnection
             case .generalError:
                 return InstaflixContants.Strings.NetworkError.general
+            case .invalidToken:
+                return InstaflixContants.Strings.NetworkError.invalidToken
             case .unkown(let error):
                 return error.localizedDescription
             case .none:
