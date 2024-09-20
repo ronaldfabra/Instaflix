@@ -36,6 +36,12 @@ public class Network: NetworkProtocol {
             decoder.dateDecodingStrategy = .iso8601
             guard let model = try? decoder.decode(T.self, from: data) else { throw NetworkErrorType.invalidData }
             return model
+        } catch let error as NSError {
+            if error.code < ResponseStatusType.success.rawValue {
+                throw NetworkErrorType.internetConnection
+            } else {
+                throw NetworkErrorType.generalError
+            }
         } catch {
             throw NetworkErrorType.unkown(error)
         }

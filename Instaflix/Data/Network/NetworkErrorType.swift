@@ -12,6 +12,7 @@ public enum NetworkErrorType: LocalizedError, Equatable {
     case serverError
     case invalidData
     case internetConnection
+    case generalError
     case unkown(Error)
     case none
 
@@ -23,13 +24,15 @@ public enum NetworkErrorType: LocalizedError, Equatable {
     public var errorDescription: String {
         switch self {
             case .invalidURL:
-                return InstaflixContants.Strings.NetworkError.invalidURL.capitalized
+                return InstaflixContants.Strings.NetworkError.invalidURL
             case .serverError:
-                return InstaflixContants.Strings.NetworkError.serverError.capitalized
+                return InstaflixContants.Strings.NetworkError.serverError
             case .invalidData:
-                return InstaflixContants.Strings.NetworkError.invalidData.capitalized
+                return InstaflixContants.Strings.NetworkError.invalidData
             case .internetConnection:
-                return InstaflixContants.Strings.NetworkError.internetConnection.capitalized
+                return InstaflixContants.Strings.NetworkError.internetConnection
+            case .generalError:
+                return InstaflixContants.Strings.NetworkError.general
             case .unkown(let error):
                 return error.localizedDescription
             case .none:

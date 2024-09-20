@@ -13,12 +13,12 @@ struct ContentView: View {
             Group {
                 HomeViewBuilder.make()
                     .tabItem {
-                        Label("Home", systemImage: "house")
+                        Label(InstaflixContants.Strings.home, systemImage: InstaflixContants.Icons.home)
                     }
 
                 MyListViewBuilder.make()
                     .tabItem {
-                        Label("My List", systemImage: "list.bullet")
+                        Label(InstaflixContants.Strings.myList, systemImage: InstaflixContants.Icons.myList)
                     }
             }
             .toolbarBackground(.ultraThinMaterial, for: .tabBar)
@@ -30,4 +30,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environmentObject(BannerViewModel())
 }

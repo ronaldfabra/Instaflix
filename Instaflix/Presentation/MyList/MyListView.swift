@@ -32,23 +32,23 @@ struct MyListView: View {
 
     var body: some View {
         contentView
-        .task {
-            await viewModel.fetchAllData()
-        }
-        .fullScreenCover(isPresented: $viewModel.showSerieDetailView) {
-            serieDetaiView
-        }
-        .fullScreenCover(isPresented: $viewModel.showMovieDetailView) {
-            movieDetaiView
-        }
-        .onRotate { newOrientation in
-            orientation = newOrientation
-        }
-        .onChange(of: viewModel.error) { _, error in
-            if error != .none {
-                bannerViewModel.setBanner(banner: .error(message: error.errorDescription))
+            .onAppear {
+                viewModel.fetchAllData()
             }
-        }
+            .fullScreenCover(isPresented: $viewModel.showSerieDetailView) {
+                serieDetaiView
+            }
+            .fullScreenCover(isPresented: $viewModel.showMovieDetailView) {
+                movieDetaiView
+            }
+            .onRotate { newOrientation in
+                orientation = newOrientation
+            }
+            .onChange(of: viewModel.error) { _, error in
+                if error != .none {
+                    bannerViewModel.setBanner(banner: .error(message: error.errorDescription))
+                }
+            }
     }
 }
 
@@ -57,11 +57,81 @@ extension MyListView {
     private var contentView: some View {
         ZStack(alignment: .top) {
             Color.instaflixBlack.ignoresSafeArea()
-            bodyView
+            if viewModel.showLoading {
+                skeletonView
+            } else {
+                bodyView
+            }
             headerView
         }
         .foregroundStyle(.instaflixWhite)
         .toolbar(.hidden, for: .navigationBar)
+    }
+}
+
+// MARK: body view
+extension MyListView {
+    private var bodyView: some View {
+        VStack(spacing: .zero) {
+            if viewModel.movieList.isEmpty && viewModel.serieList.isEmpty {
+                emptyState
+            } else {
+                ScrollViewWithOnScrollChanged(
+                    .vertical,
+                    showsIndicators: false,
+                    content: {
+                        bodyContentView
+                    },
+                    onScrollChanged: { offset in
+                        scrollViewOffset = min(.zero, offset.y)
+                    }
+                )
+            }
+        }
+    }
+
+    private  var bodyContentView: some View {
+        VStack(spacing: Dimens.spacing8) {
+            Rectangle()
+                .opacity(.zero)
+                .frame(height: fullHeaderSize.height)
+            VStack {
+                ScrollView {
+                    VStack(spacing: Dimens.spacingBetweenSections) {
+                        myMoviesSection
+                        mySeriesSection
+                    }
+                }
+            }
+            .padding(.horizontal, Dimens.generaHorizontalPadding)
+        }
+    }
+}
+
+// MARK: myMoviesSection
+extension MyListView {
+    private var emptyState: some View {
+        VStack {
+            Spacer()
+            VStack(alignment: .center, spacing: Dimens.spacing20) {
+                VStack(alignment: .center, spacing: Dimens.spacing10) {
+                    Text(Strings.emptyStateTitle)
+                        .font(.title)
+                        .fontWeight(.bold)
+                    Text(Strings.emptyStateDescription)
+                        .font(.headline)
+                        .fontWeight(.medium)
+                }
+                .multilineTextAlignment(.center)
+                HStack(spacing: .zero) {
+                    Text(Strings.addFavoriteHelper) +
+                    Text(Image(systemName: InstaflixContants.Icons.plus)) +
+                    Text(Strings.button)
+                }
+                .font(.callout)
+            }
+            Spacer()
+        }
     }
 }
 
@@ -162,13 +232,17 @@ extension MyListView {
 // MARK: header view
 extension MyListView {
     private var headerView: some View {
-        VStack(spacing: .zero) {
+        HStack(spacing: Dimens.spacing10) {
+            Image(InstaflixContants.Icons.appLogo)
+                .resizable()
+                .frame(width: Dimens.logoWitth, height: Dimens.logoHeight)
             Text(Strings.myList)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .font(.title)
-                .padding(.horizontal, Dimens.generaHorizontalPadding)
+                .fontWeight(.bold)
         }
         .padding(.bottom, Dimens.spacing8)
+        .padding(.horizontal, Dimens.generaHorizontalPadding)
         .background(
             ZStack {
                 if scrollViewOffset < Values.maximumOfssetToDisplayTheBackgroundHeader {
@@ -184,43 +258,6 @@ extension MyListView {
         .readingFrame { frame in
             fullHeaderSize = frame.size
         }
-    }
-}
-
-// MARK: body view
-extension MyListView {
-    private var bodyView: some View {
-        ScrollViewWithOnScrollChanged(
-            .vertical,
-            showsIndicators: false,
-            content: {
-                VStack(spacing: Dimens.spacing8) {
-                    Rectangle()
-                        .opacity(.zero)
-                        .frame(height: fullHeaderSize.height)
-                    bodyContentView
-                }
-            },
-            onScrollChanged: { offset in
-                scrollViewOffset = min(.zero, offset.y)
-            }
-        )
-    }
-
-    private  var bodyContentView: some View {
-        VStack {
-            if viewModel.showLoading {
-                skeletonView
-            } else {
-                ScrollView {
-                    VStack(spacing: Dimens.spacingBetweenSections) {
-                        myMoviesSection
-                        mySeriesSection
-                    }
-                }
-            }
-        }
-        .padding(.horizontal, Dimens.generaHorizontalPadding)
     }
 }
 

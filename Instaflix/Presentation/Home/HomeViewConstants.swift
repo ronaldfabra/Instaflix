@@ -14,6 +14,8 @@ struct HomeViewConstants {
         static let spacing16 = 16.0
         static let closeButtonSize = 36.0
         static let topSpace = 50.0
+        static let logoWitth = 15.0
+        static let logoHeight = 30.0
     }
 
     struct Assets {
