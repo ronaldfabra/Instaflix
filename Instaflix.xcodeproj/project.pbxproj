@@ -28,7 +28,6 @@
 		08B3F4672C98BC1200B18633 /* ProductionCountryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3F4022C98BC1200B18633 /* ProductionCountryDto.swift */; };
 		08B3F4682C98BC1200B18633 /* SpokenLanguageDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3F4032C98BC1200B18633 /* SpokenLanguageDto.swift */; };
 		08B3F4692C98BC1200B18633 /* EndPointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3F4052C98BC1200B18633 /* EndPointProtocol.swift */; };
-		08B3F46A2C98BC1200B18633 /* ImageEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3F4062C98BC1200B18633 /* ImageEndpoint.swift */; };
 		08B3F46B2C98BC1200B18633 /* MovieEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3F4072C98BC1200B18633 /* MovieEndpoint.swift */; };
 		08B3F46C2C98BC1200B18633 /* MultiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3F4082C98BC1200B18633 /* MultiEndpoint.swift */; };
 		08B3F46D2C98BC1200B18633 /* MovieEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3F40A2C98BC1200B18633 /* MovieEntity.swift */; };
@@ -230,7 +229,6 @@
 		08B3F4022C98BC1200B18633 /* ProductionCountryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductionCountryDto.swift; sourceTree = "<group>"; };
 		08B3F4032C98BC1200B18633 /* SpokenLanguageDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpokenLanguageDto.swift; sourceTree = "<group>"; };
 		08B3F4052C98BC1200B18633 /* EndPointProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPointProtocol.swift; sourceTree = "<group>"; };
-		08B3F4062C98BC1200B18633 /* ImageEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEndpoint.swift; sourceTree = "<group>"; };
 		08B3F4072C98BC1200B18633 /* MovieEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieEndpoint.swift; sourceTree = "<group>"; };
 		08B3F4082C98BC1200B18633 /* MultiEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiEndpoint.swift; sourceTree = "<group>"; };
 		08B3F40A2C98BC1200B18633 /* MovieEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieEntity.swift; sourceTree = "<group>"; };
@@ -485,7 +483,6 @@
 			isa = PBXGroup;
 			children = (
 				08B3F4052C98BC1200B18633 /* EndPointProtocol.swift */,
-				08B3F4062C98BC1200B18633 /* ImageEndpoint.swift */,
 				08B3F4072C98BC1200B18633 /* MovieEndpoint.swift */,
 				08B3F4082C98BC1200B18633 /* MultiEndpoint.swift */,
 				08B3F4B42C98CA9700B18633 /* SerieEndpoint.swift */,
@@ -1541,7 +1538,6 @@
 				08B3F4A72C98C6A300B18633 /* SerieListViewModel.swift in Sources */,
 				08B3F4922C98BC1200B18633 /* LocationReader.swift in Sources */,
 				08B3F4692C98BC1200B18633 /* EndPointProtocol.swift in Sources */,
-				08B3F46A2C98BC1200B18633 /* ImageEndpoint.swift in Sources */,
 				08B3F5162C99566300B18633 /* MultiDomainModel.swift in Sources */,
 				08257DE52C9B991100E7D5C3 /* SerieDetailViewBuilder.swift in Sources */,
 				08B3F50E2C99555C00B18633 /* MultiRepositoryProtocol.swift in Sources */,
@@ -1824,7 +1820,7 @@
 		08BD19A72C946E1400F2C535 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				API_KEY = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YmNkNTc5OGM1YjYyNTBmZTcyNDcxNzc2NjMwNGI4NCIsIm5iZiI6MTcyNTQyNDcwMi44Mzg2NzMsInN1YiI6IjVhYTZlMzIwYzNhMzY4MzljZTAxMGE5ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.xoei4JbNsQET10JIytTV7zLujEu4_S3bR-qLakGdNpc";
+				API_KEY = "";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Instaflix/Instaflix.entitlements;
@@ -1867,7 +1863,7 @@
 		08BD19A82C946E1400F2C535 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				API_KEY = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YmNkNTc5OGM1YjYyNTBmZTcyNDcxNzc2NjMwNGI4NCIsIm5iZiI6MTcyNTQyNDcwMi44Mzg2NzMsInN1YiI6IjVhYTZlMzIwYzNhMzY4MzljZTAxMGE5ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.xoei4JbNsQET10JIytTV7zLujEu4_S3bR-qLakGdNpc";
+				API_KEY = "";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Instaflix/Instaflix.entitlements;
