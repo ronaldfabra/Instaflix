@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "NetworkMock.request&lt;&#x3c4;_0_0&gt;(endPoint:type:):NetworkMock.swift">
+      </ContextState>
+      <ContextState
+         contextName = "static InstaflixUtils.getYear(from:):InstaflixUtils.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dateFormatter.date(from: dateStr)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #2 in closure #1 in closure #1 in closure #1 in closure #1 in closure #1 in closure #1 in closure #1 in MovieListView.body.getter:MovieListView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "viewModel.getImageUrl(filePath: movie.posterPath)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static InstaflixUtils.getGeneralHeaders():InstaflixUtils.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Bundle.main.object(forInfoDictionaryKey: &quot;API_KEY&quot;)">
+            </PersistentString>
+            <PersistentString
+               value = "Bundle.main.object(forInfoDictionaryKey: &quot;API_KEY&quot;) as? String">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GetSerieDetailByIdUseCaseTests.testfetchDataInvalid():GetSerieDetailByIdUseCaseTests.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MovieDetailDomainModel.init(adult:backdropPath:belongsToCollection:budget:genres:homepage:id:imdbId:originalLanguage:originalTitle:overview:popularity:posterPath:productionCompanies:productionCountries:releaseDate:revenue:runtime:spokenLanguages:status:tagline:title:voteAverage:voteCount:isFavorite:):MovieDetailDomainModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "InstaflixUtils.getYear(from: releaseDate)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SearchViewModel.fetchMovies(by:):SearchViewModel.swift">
+      </ContextState>
+      <ContextState
+         contextName = "DetailViewModel.fetchImage(_:):MovieDetailViewModel.swift">
+      </ContextState>
+      <ContextState
+         contextName = "InstaflixModelContainer.saveMovie(response:):InstaflixModelContainer.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "getMovieById(response.id)">
+            </PersistentString>
+            <PersistentString
+               value = "model.overview">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ImageRepository.getImageById(id:path:):ImageRepository.swift">
+      </ContextState>
+      <ContextState
+         contextName = "SerieListViewModel.handleSuccess(categoryIndex:response:):SerieListViewModel.swift">
+      </ContextState>
+      <ContextState
+         contextName = "static InstaflixUtils.isRecentlyAdded(dateStr:):InstaflixUtils.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Date()">
+            </PersistentString>
+            <PersistentString
+               value = "dateFormatter2.date(from: dateStr)">
+            </PersistentString>
+            <PersistentString
+               value = "date.isInSameMonth(as: Date())">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DetailViewModel.getImageUrl(filePath:):MovieDetailViewModel.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #3 in closure #1 in closure #1 in closure #1 in closure #1 in closure #1 in closure #1 in closure #1 in MovieListView.body.getter:MovieListView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MovieRepository.saveMovie(response:category:):MovieRepository.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MovieListViewModel.fetchMovies(by:):MovieListViewModel.swift">
+      </ContextState>
+      <ContextState
+         contextName = "SeriseDetailViewModelTests.testfetchData():SerieDetailViewModelTests.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MultiRepositoryTests.testGetSearch():MultiRepositoryTests.swift">
+      </ContextState>
+      <ContextState
+         contextName = "SerieListViewModelTests.testfetchDataWithInvalidPage():SerieListViewModelTests.swift">
+      </ContextState>
+      <ContextState
+         contextName = "Network.request&lt;&#x3c4;_0_0&gt;(endPoint:type:):Network.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(response as? HTTPURLResponse)?.statusCode">
+            </PersistentString>
+            <PersistentString
+               value = "urlRequest.httpMethod">
+            </PersistentString>
+            <PersistentString
+               value = "urlRequest.allHTTPHeaderFields">
+            </PersistentString>
+            <PersistentString
+               value = "try? decoder.decode(T.self, from: data)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
