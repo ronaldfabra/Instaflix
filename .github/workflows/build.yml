@@ -1,4 +1,4 @@
-name: iOS CI/CD Pipeline
+name: iOS CI Pipeline
 on:
   workflow_dispatch:
   push:
