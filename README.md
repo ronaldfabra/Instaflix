@@ -24,11 +24,11 @@ Before running the project, make sure to set up your api key correctly.
 
 The project follows the Clean Architecture approach, using also the Builder pattern ensuring high cohesion and low coupling through layer separation:
 
-Domain Layer: Contains business specifications with different use cases, and domain models.
-Data Layer: Groups components associated with different data sources, such as mappers, response models (Dto), entities, endpoints and repositories.
-Presentation Layer: Contains functionality modules (movie, serie, favorite, search) and shared components used in all the application.
-Extensions: Contains some class extensions to handle the data.
-Utils: Contain some util funcitonalities to process and handle the data.
+- Domain Layer: Contains business specifications with different use cases, and domain models.
+- Data Layer: Groups components associated with different data sources, such as mappers, response models (Dto), entities, endpoints and repositories.
+- Presentation Layer: Contains functionality modules (movie, serie, favorite, search) and shared components used in all the application.
+- Extensions: Contains some class extensions to handle the data.
+- Utils: Contain some util funcitonalities to process and handle the data.
 
 ## Dependency Injection
 
