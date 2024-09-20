@@ -25,6 +25,9 @@ struct InstaflixContants {
         static let plus = "plus"
         static let share = "paperplane"
         static let close = "xmark"
+        static let home = "house"
+        static let myList = "list.bullet"
+        static let appLogo = "InstaflixIcon"
     }
 
     struct Headers {
@@ -34,7 +37,7 @@ struct InstaflixContants {
     }
 
     struct Strings {
-
+        static let home = "Home"
         static let myList = "My list"
         static let share = "Share"
 
@@ -55,8 +58,9 @@ struct InstaflixContants {
         struct NetworkError {
             static let invalidURL = "The url seems to be incorrect, try again later."
             static let serverError = "Internal server error, try again later."
-            static let invalidData = "error in the data obtained, try again later."
+            static let invalidData = "Error in the data obtained, try again later."
             static let internetConnection = "The internet connection appears to be offline."
+            static let general = "System error, try again later"
         }
     }
 }

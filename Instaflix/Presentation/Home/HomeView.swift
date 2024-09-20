@@ -34,6 +34,9 @@ struct HomeView: View {
         .fullScreenCover(isPresented: $viewModel.showSearchView, content: {
             SearchViewBuilder.make()
         })
+        .onAppear {
+            viewModel.selectedFilter = viewModel.filters.first
+        }
         .onRotate { newOrientation in
             orientation = newOrientation
         }
@@ -69,10 +72,15 @@ extension HomeView {
 
     var navigationBarView: some View {
         HStack(spacing: .zero) {
-            Text(Strings.forYou)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .font(.title)
-
+            HStack(spacing: Dimens.spacing10) {
+                Image(InstaflixContants.Icons.appLogo)
+                    .resizable()
+                    .frame(width: Dimens.logoWitth, height: Dimens.logoHeight)
+                Text(Strings.forYou)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(.title)
+                    .fontWeight(.bold)
+            }
             Image(systemName: Assets.searchIcon)
                 .font(.title2)
                 .onTapGesture {

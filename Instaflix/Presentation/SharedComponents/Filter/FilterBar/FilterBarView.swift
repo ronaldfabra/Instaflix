@@ -15,6 +15,7 @@ struct FilterBarView: View {
 
     var filters: [FilterDomainModel] = []
     @Binding var selectedFilter: FilterDomainModel?
+    var showClearButton: Bool = false
     var onFilterPressed: ((FilterDomainModel) -> Void)? = nil
     var onClosePressed: (() -> Void)? = nil
 
@@ -22,6 +23,9 @@ struct FilterBarView: View {
         ScrollView(.horizontal) {
             HStack {
                 clearButton
+                    .if(!showClearButton || selectedFilter == nil) { content in
+                        content.hidden(true, remove: true)
+                    }
                 filterList
             }
             .padding(.vertical, Dimens.spacing4)
@@ -34,23 +38,19 @@ struct FilterBarView: View {
 // MARK: clearButton
 extension FilterBarView {
     private var clearButton: some View {
-        VStack {
-            if selectedFilter != nil {
-                Image(systemName: Assets.closeIcon)
-                    .padding(Dimens.spacing8)
-                    .background(
-                        Circle()
-                            .stroke(lineWidth: Values.one)
-                    )
-                    .foregroundStyle(.instaflixLightGray)
-                    .background(Color.instaflixBlack.opacity(Values.backgroundOpacity))
-                    .onTapGesture {
-                        onClosePressed?()
-                    }
-                    .transition(.move(edge: .leading))
-                    .padding(.leading, Dimens.spacing16)
+        Image(systemName: Assets.closeIcon)
+            .padding(Dimens.spacing8)
+            .background(
+                Circle()
+                    .stroke(lineWidth: Values.one)
+            )
+            .foregroundStyle(.instaflixLightGray)
+            .background(Color.instaflixBlack.opacity(Values.backgroundOpacity))
+            .onTapGesture {
+                onClosePressed?()
             }
-        }
+            .transition(.move(edge: .leading))
+            .padding(.leading, Dimens.spacing16)
     }
 }
 
@@ -59,20 +59,30 @@ extension FilterBarView {
     private var filterList: some View {
         HStack {
             ForEach(filters, id: \.self) { filter in
-                if selectedFilter == nil || selectedFilter == filter {
-                    FilterCell(
-                        title: filter.title,
-                        isDropdown: filter.isDropdown,
-                        isSelected: selectedFilter == filter
-                    )
-                    .background(Color.instaflixBlack.opacity(Values.backgroundOpacity))
-                    .onTapGesture {
-                        selectedFilter = filter
-                        onFilterPressed?(filter)
+                if showClearButton {
+                    if selectedFilter == nil || selectedFilter == filter {
+                        filterCell(filter: filter)
+                            .padding(.leading, ((selectedFilter == nil) && filter == filters.first) ? Dimens.spacing16 : .zero)
                     }
-                    .padding(.leading, ((selectedFilter == nil) && filter == filters.first) ? Dimens.spacing16 : .zero)
+                } else {
+                    filterCell(filter: filter)
+                        .padding(.leading, .zero)
                 }
             }
+        }
+        .padding(.leading, showClearButton ? .zero : Dimens.spacing16)
+    }
+
+    private func filterCell(filter: FilterDomainModel) -> some View {
+        FilterCell(
+            title: filter.title,
+            isDropdown: filter.isDropdown,
+            isSelected: selectedFilter == filter
+        )
+        .background(Color.instaflixBlack.opacity(Values.backgroundOpacity))
+        .onTapGesture {
+            selectedFilter = filter
+            onFilterPressed?(filter)
         }
     }
 }
@@ -86,6 +96,7 @@ fileprivate struct FilterBarViewPreview: View {
         FilterBarView(
             filters: filters,
             selectedFilter: $selectedFilter,
+            showClearButton: false,
             onFilterPressed: { filterSelected in
                 selectedFilter = filterSelected
             },
