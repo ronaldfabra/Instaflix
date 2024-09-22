@@ -42,7 +42,7 @@ class MovieDetailViewModel: ObservableObject {
         do {
             async let movieData = getMovieByIdUseCase.execute(id: movieId)
             async let similarData = getSimilarMoviesByIdUseCase.execute(id: movieId, page: similarPage)
-            async let videoData = getMovieVideoByIdUseCase.execute(id: movieId, path: MediaType.serie.enpointValue)
+            async let videoData = getMovieVideoByIdUseCase.execute(id: movieId, path: MediaType.movie.enpointValue)
             let (movieResponse, similarResponse, videoResponse) = try await (movieData, similarData, videoData)
             currentMovie = movieResponse
             similarList = Array(similarResponse.results.prefix(similarMoviesToShow))
